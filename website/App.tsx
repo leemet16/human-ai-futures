@@ -260,9 +260,6 @@ const App: React.FC = () => {
                       alt="The Steward Cover - A plant growing through concrete in a futuristic city" 
                       className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500" 
                     />
-                    <div className="absolute top-0 right-0 bg-black text-white text-xs font-mono px-2 py-1 border-b border-l border-zinc-800">
-                      10¢
-                    </div>
                  </div>
                  <div className="flex-1 flex flex-col">
                     <h3 className="text-2xl font-bold text-white mb-2 font-sans tracking-tight">01_THE_STEWARD</h3>
@@ -296,9 +293,6 @@ const App: React.FC = () => {
                       alt="Fork the Vote Cover - Lightning splitting a capitol building" 
                       className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500" 
                     />
-                    <div className="absolute top-0 right-0 bg-black text-white text-xs font-mono px-2 py-1 border-b border-l border-zinc-800">
-                      10¢
-                    </div>
                  </div>
                  <div className="flex-1 flex flex-col">
                     <h3 className="text-2xl font-bold text-white mb-2 font-sans tracking-tight">02_FORK_THE_VOTE</h3>
@@ -447,23 +441,26 @@ const App: React.FC = () => {
              </div>
           </div>
 
-          <div id="about" className="grid md:grid-cols-12 gap-8 items-start">
-             <div className="md:col-span-4">
-                <div className="w-full aspect-square bg-zinc-800 grayscale relative">
+          <div id="about" className="grid md:grid-cols-12 gap-12 items-center bg-black/40 p-8 md:p-12 border border-zinc-800 backdrop-blur-sm">
+             <div className="md:col-span-4 lg:col-span-4">
+                <div className="w-full aspect-[3/4] relative overflow-hidden border border-zinc-800 grayscale-0">
                   <img 
-                    src="assets/lee-ackerman.jpg" 
+                    src="https://raw.githubusercontent.com/stackblitz/stackblitz-images/main/cil-studio/lee-headshot-blue-red.jpg" 
                     alt="Lee Ackerman" 
-                    className="w-full h-full object-cover mix-blend-luminosity" 
+                    className="w-full h-full object-cover" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-red-500/10 mix-blend-overlay pointer-events-none" />
                 </div>
              </div>
-             <div className="md:col-span-8">
-               <h3 className="text-2xl font-bold text-white mb-2">Lee Ackerman</h3>
-               <div className="text-green-500 font-mono text-sm mb-6">FOUNDER // RESEARCHER</div>
-               <div className="space-y-4 text-zinc-400 leading-relaxed text-lg">
+             <div className="md:col-span-8 lg:col-span-8">
+               <h3 className="text-4xl md:text-5xl font-bold text-white mb-3 tracking-tighter">Lee Ackerman</h3>
+               <div className="text-green-500 font-mono text-sm mb-8 flex items-center gap-2">
+                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                 FOUNDER // RESEARCHER
+               </div>
+               <div className="space-y-6 text-zinc-400 leading-relaxed text-lg font-light">
                  <p>
-                   Lee Ackerman is a researcher and creative technologist. His 2025 research on Organizational Perceptions of Agentic AI measured a critical competence gap: 86% of organizations admitted their frameworks were inadequate, yet stakeholder engagement remained their lowest priority.
+                   Lee Ackerman is a researcher and creative technologist. His 2025 research on <strong className="text-white font-medium">Organizational Perceptions of Agentic AI</strong> measured a critical competence gap: 86% of organizations admitted their frameworks were inadequate, yet stakeholder engagement remained their lowest priority.
                  </p>
                  <p>
                    He founded CIL Studio to answer that data: building the "Stakeholder Engagement" tools the industry is missing, using the very technology they fear.
