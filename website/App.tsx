@@ -443,13 +443,12 @@ const App: React.FC = () => {
 
           <div id="about" className="grid md:grid-cols-12 gap-12 items-center bg-black/40 p-8 md:p-12 border border-zinc-800 backdrop-blur-sm">
              <div className="md:col-span-4 lg:col-span-4">
-                <div className="w-full aspect-[3/4] relative overflow-hidden border border-zinc-800 grayscale-0">
+                <div className="w-full aspect-[3/4] relative overflow-hidden border border-zinc-800">
                   <img 
-                    src="https://raw.githubusercontent.com/stackblitz/stackblitz-images/main/cil-studio/lee-headshot-blue-red.jpg" 
+                    src="assets/lee-ackerman.jpg" 
                     alt="Lee Ackerman" 
                     className="w-full h-full object-cover" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-red-500/10 mix-blend-overlay pointer-events-none" />
                 </div>
              </div>
              <div className="md:col-span-8 lg:col-span-8">
