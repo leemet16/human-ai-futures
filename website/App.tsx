@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Terminal, FileText, Cpu, BookOpen, ExternalLink, ChevronDown, Anchor, Eye } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
 import { Section } from './components/Section';
 import { Button } from './components/ui/Button';
-import { ReadinessChart } from './components/Charts';
-import { TeamLegend } from './components/TeamLegend';
 
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,44 +30,49 @@ const App: React.FC = () => {
   };
 
   const navLinks = [
-    { label: 'The Comics', href: '#library' },
-    { label: 'The Framework', href: '#os' },
-    { label: 'Research', href: '#research' },
-    { label: 'About', href: '#about' },
+    { label: 'Amplification', href: '#amplification' },
+    { label: 'Humancode', href: '#humancode' },
+    { label: 'Studio', href: '#studio' },
+    { label: 'Anthology', href: '#anthology' },
+    { label: 'Writing', href: '#writing' },
   ];
 
   return (
-    <div className="min-h-screen bg-noir-900 text-zinc-300 selection:bg-white selection:text-black overflow-x-hidden">
-      
+    <div className="min-h-screen bg-noir-900 text-ink/90 selection:bg-brand-purple selection:text-white overflow-x-hidden">
+
       {/* Background Grid */}
       <div className="fixed inset-0 grid-bg pointer-events-none z-0 opacity-20" />
 
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${scrolled ? 'bg-noir-900/90 backdrop-blur-md border-noir-border' : 'bg-transparent border-transparent'}`}>
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-white font-bold tracking-tighter text-xl z-50 cursor-default">
-            <Terminal className="w-5 h-5" />
-            <span>CIL_STUDIO</span>
-          </div>
+          <a
+            href="#top"
+            onClick={(e) => handleScroll(e, '#top')}
+            className="flex items-baseline gap-2 z-50"
+          >
+            <span className="text-xl font-semibold tracking-tight text-ink lowercase">zhudiyo</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-purple self-center" />
+            <span className="hidden sm:inline text-[11px] font-medium tracking-[0.2em] uppercase text-ink/40">from CIL Studio</span>
+          </a>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a 
-                key={link.label} 
+              <a
+                key={link.label}
                 href={link.href}
                 onClick={(e) => handleScroll(e, link.href)}
-                className="text-xs font-mono uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
+                className="text-xs font-medium uppercase tracking-[0.18em] text-ink/50 hover:text-ink transition-colors"
               >
                 {link.label}
               </a>
             ))}
-            <Button variant="primary" className="h-10 text-xs" href="#library">Explore Prototypes</Button>
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button 
-            className="md:hidden text-white z-50"
+          <button
+            className="md:hidden text-ink z-50"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X /> : <Menu />}
@@ -78,413 +81,712 @@ const App: React.FC = () => {
 
         {/* Mobile Nav Overlay */}
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center space-y-8 md:hidden">
+          <div className="fixed inset-0 bg-noir-900 z-40 flex flex-col items-center justify-center space-y-8 md:hidden">
             {navLinks.map((link) => (
-              <a 
-                key={link.label} 
-                href={link.href} 
+              <a
+                key={link.label}
+                href={link.href}
                 onClick={(e) => handleScroll(e, link.href)}
-                className="text-2xl font-mono text-white hover:text-zinc-400"
+                className="text-2xl font-medium text-ink hover:text-brand-purple transition-colors"
               >
                 {link.label}
               </a>
             ))}
-            <Button href="#library" onClick={() => setIsMenuOpen(false)}>Explore Prototypes</Button>
           </div>
         )}
       </nav>
 
       <main className="relative z-10 pt-20">
-        
+
         {/* Section 1: Hero */}
-        <Section className="min-h-[85vh] flex flex-col justify-center border-none" borderTop={false}>
+        <Section id="top" className="min-h-[88vh] flex flex-col justify-center border-none" borderTop={false}>
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 border border-zinc-800 rounded-full mb-8 bg-zinc-900/50">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              <span className="text-xs font-mono text-zinc-400 uppercase">System Status: Release Candidate</span>
+            <div className="flex items-center gap-3 mb-8">
+              <span className="w-2 h-2 rounded-full bg-brand-purple" />
+              <span className="text-xs font-medium tracking-[0.25em] uppercase text-ink/50">From CIL Studio</span>
             </div>
-            
-            <h1 className="text-5xl md:text-8xl font-bold text-white mb-8 tracking-tighter leading-[0.9]">
-              DEBUG <br />
-              THE FUTURE<span className="text-green-500">.</span>
+
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-ink mb-6 tracking-tight lowercase leading-[0.95]">
+              zhudiyo
             </h1>
-            
-            <p className="text-xl md:text-2xl text-zinc-400 max-w-2xl font-light mb-10 leading-relaxed">
-              The majority of organizations admit they're unprepared for Agentic AI. We build the missing competence—one story at a time.
+
+            <p className="text-2xl md:text-3xl text-ink max-w-2xl font-light mb-3 leading-snug">
+              An AI-native comic studio that amplifies the creator.
             </p>
-            
+            <p className="text-lg text-ink/40 italic mb-10">
+              Like &ldquo;studio,&rdquo; said a little differently.
+            </p>
+
+            <p className="text-base md:text-lg text-ink/60 max-w-xl font-light mb-10 leading-relaxed">
+              A studio reshaped for the AI age &mdash; where the machine collaborates and the
+              human authors. Real, and working. The first comics are coming.
+            </p>
+
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button icon href="#library">Explore the Prototypes</Button>
-              <Button variant="secondary" href="#research">See the Research</Button>
+              <Button icon href="#amplification">Read on</Button>
+              <Button variant="secondary" href="#humancode">What is Humancode?</Button>
             </div>
           </div>
-          
+
           {/* Scroll Indicator */}
           <div className="absolute bottom-10 left-6 animate-bounce hidden md:block">
-            <ChevronDown className="text-zinc-600" />
+            <ChevronDown className="text-ink/30" />
           </div>
         </Section>
 
-        {/* Section 2: The Problem */}
-        <Section id="problem" className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="font-mono text-green-500 text-xs mb-4 uppercase tracking-widest border-l-2 border-green-500 pl-3">
-              Data Source: arXiv:2504.11564 (2025)
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">The Agentic Readiness Gap.</h2>
-            <h3 className="text-xl text-zinc-200 mb-6 font-mono">The technology is autonomous. The workforce is not.</h3>
-            
-            <div className="space-y-6 text-zinc-400 leading-relaxed">
-              <p>
-                We are entering the era of Agentic AI. Yet, our 2025 study of North American organizations reveals a critical fragility.
-                The industry is prioritizing <strong className="text-white">Control</strong> (technical guardrails) over <strong className="text-white">Competence</strong> (human literacy).
+        {/* Section: Amplification */}
+        <Section id="amplification">
+          <div className="max-w-4xl">
+            <span className="block text-xs font-medium tracking-[0.25em] uppercase text-brand-purple mb-8">
+              Amplification
+            </span>
+
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] mb-10">
+              <span className="text-ink/40">Replacement is the easy path.</span>
+              <br />
+              <span className="text-ink">Amplification is the better one.</span>
+            </h2>
+
+            <div className="max-w-2xl space-y-6 font-light leading-relaxed">
+              <p className="text-lg text-ink/60">
+                The default direction of AI is automation &mdash; a new production line for the
+                knowledge economy. That&rsquo;s industrial-era thinking, applied to a creative-era
+                opportunity.
               </p>
-              <p className="border-l border-zinc-700 pl-4 italic">
-                "This creates a 'fragile fortress'—systems that are technically locked down, but socially misunderstood."
-              </p>
-              <p>
-                You cannot control what you do not understand. Technical guardrails fail without human judgment. Comics build that judgment.
+              <p className="text-xl md:text-2xl text-ink italic">
+                The interesting future is older.{' '}
+                <span className="text-brand-yellow not-italic font-normal">Craft.</span> And now
+                &mdash; finally &mdash; we can amplify it.
               </p>
             </div>
           </div>
-          <div className="relative">
-             <ReadinessChart />
-             {/* Schematic decorative elements */}
-             <div className="absolute -top-4 -right-4 w-20 h-20 border-t border-r border-zinc-800" />
-             <div className="absolute -bottom-4 -left-4 w-20 h-20 border-b border-l border-zinc-800" />
+
+          {/* Amplified craft — three principles */}
+          <div className="mt-20">
+            <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-ink/40 mb-8">
+              Amplified craft &mdash; three principles
+            </h3>
+            <div className="grid md:grid-cols-3 gap-px bg-noir-border border border-noir-border">
+              {[
+                {
+                  n: '01',
+                  title: 'The creator is the author.',
+                  body: 'The work belongs to the human at the center. Always. Agents support — they do not author.',
+                },
+                {
+                  n: '02',
+                  title: 'Agents handle production load.',
+                  body: 'The repetitive, structural, executional work that drains attention — distributed to agents in defined roles.',
+                },
+                {
+                  n: '03',
+                  title: 'Craft is the point.',
+                  body: 'Tools should sharpen intention, attention, and discrimination. Not replace them with the median.',
+                },
+              ].map((p) => (
+                <div key={p.n} className="bg-noir-900 p-8">
+                  <div className="text-xs font-medium tracking-[0.2em] text-brand-purple mb-6">
+                    {p.n}
+                  </div>
+                  <div className="w-0.5 h-8 bg-brand-purple mb-5" />
+                  <h4 className="text-xl font-semibold text-ink mb-3">{p.title}</h4>
+                  <p className="text-sm text-ink/55 leading-relaxed font-light">{p.body}</p>
+                </div>
+              ))}
+            </div>
           </div>
+
+          <p className="mt-12 text-lg text-ink/60 font-light max-w-2xl">
+            I call the underlying idea <span className="text-ink italic">workflow as medium</span>:
+            the workflow itself is something you author with intent &mdash; not neutral plumbing
+            between a person and an output.
+          </p>
         </Section>
 
-        {/* Section 3: The Solution */}
-        <Section id="solution">
-          <div className="grid lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-7">
-              <div className="max-w-3xl">
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">From Control to Competence</h2>
-                <p className="text-xl text-zinc-300 mb-12">
-                  Technical documentation describes the code. Graphic narrative tests the consequences.
+        {/* Section: Humancode */}
+        <Section id="humancode">
+          <div className="max-w-4xl">
+            <span className="block text-xs font-medium tracking-[0.25em] uppercase text-brand-purple mb-8">
+              Humancode
+            </span>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] text-ink mb-8">
+              Keep humans at the center &mdash; of the making, and the story.
+            </h2>
+            <p className="text-lg md:text-xl text-ink/60 font-light leading-relaxed max-w-2xl">
+              Humancode is the studio&rsquo;s name for a single commitment: the human stays at the
+              center of both how the work is made and what the work is about.
+            </p>
+          </div>
+
+          {/* Two halves */}
+          <div className="grid md:grid-cols-2 gap-px bg-noir-border border border-noir-border mt-16">
+            <div className="bg-noir-900 p-8 md:p-10">
+              <span className="block text-xs font-medium uppercase tracking-[0.2em] text-ink/40 mb-5">
+                In the making
+              </span>
+              <p className="text-lg text-ink/80 font-light leading-relaxed">
+                The machine collaborates; the human authors. Agents extend reach, not judgment
+                &mdash; the creator stays the author of every decision that shapes the work.
+              </p>
+            </div>
+            <div className="bg-noir-900 p-8 md:p-10">
+              <span className="block text-xs font-medium uppercase tracking-[0.2em] text-ink/40 mb-5">
+                In the story
+              </span>
+              <p className="text-lg text-ink/80 font-light leading-relaxed">
+                A Humancode story is never a demonstration of a technology. It is an account of what
+                that technology does to, for, and through people &mdash; the future shown in a body,
+                a relationship, a system someone built and someone else lives inside.
+              </p>
+            </div>
+          </div>
+
+          {/* The test */}
+          <div className="mt-16 max-w-4xl">
+            <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-ink/40 mb-8">
+              The test &mdash; two questions, at every scale
+            </h3>
+            <div className="space-y-6">
+              <div className="flex items-baseline gap-5">
+                <span className="text-brand-purple text-2xl font-light leading-none select-none">
+                  &mdash;
+                </span>
+                <p className="text-2xl md:text-3xl text-ink font-light italic">
+                  Are we amplifying the creator?
                 </p>
               </div>
-
-              <div className="grid md:grid-cols-1 gap-8">
-                {[
-                  {
-                    title: "Making the Invisible, Visible",
-                    desc: "We use iconic abstraction to strip away technical noise and reveal the 'Black Box.' Complex algorithms become characters with motivations.",
-                    icon: <Eye className="w-6 h-6 text-white" />
-                  },
-                  {
-                    title: "Mapping Systemic Risk",
-                    desc: "In a comic, time becomes space. We use sequential layouts to map the cascading effects of a single algorithmic decision.",
-                    icon: <Anchor className="w-6 h-6 text-white" />
-                  },
-                  {
-                    title: "Active Debugging",
-                    desc: "McLuhan called comics a 'Cool Medium'. By forcing readers to bridge the 'gutters' between panels, we compel them to simulate ethical trade-offs.",
-                    icon: <Cpu className="w-6 h-6 text-white" />
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className="group p-6 border border-zinc-800 hover:border-zinc-500 transition-colors bg-noir-800/20">
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 bg-zinc-900 inline-block rounded-none border border-zinc-700 group-hover:bg-zinc-800 transition-colors shrink-0">
-                        {item.icon}
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-white mb-2 font-sans">{item.title}</h3>
-                        <p className="text-sm text-zinc-400 font-mono leading-relaxed">{item.desc}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              <div className="flex items-baseline gap-5">
+                <span className="text-brand-yellow text-2xl font-light leading-none select-none">
+                  &mdash;
+                </span>
+                <p className="text-2xl md:text-3xl text-ink font-light italic">
+                  Is humanity at stake in the story?
+                </p>
               </div>
             </div>
+            <p className="text-base text-ink/50 font-light mt-8 max-w-xl">
+              The subject doesn&rsquo;t have to be human &mdash; but humanity has to be at stake.
+            </p>
+          </div>
 
-            {/* Visual Feature: Mapping Systemic Risk */}
-            <div className="lg:col-span-5 hidden lg:flex flex-col justify-center">
-              <div className="relative border border-noir-border bg-noir-800/30 p-2">
-                <img 
-                  src="assets/system-analysis.jpg" 
-                  alt="City System Analysis - Project Evergreen Heatmap" 
-                  className="w-full h-auto opacity-90 mix-blend-normal" 
-                />
-                <div className="absolute bottom-4 left-4 bg-black/80 p-2 border border-zinc-800 backdrop-blur-sm">
-                  <span className="text-xs font-mono text-green-500 block">SYSTEM_ANALYSIS // PAGE_05</span>
+          <p className="mt-12 max-w-2xl text-base text-ink/45 font-light leading-relaxed">
+            Told across distinct visual languages, and at every altitude &mdash; from one life up
+            close to the systems that contain it.
+          </p>
+        </Section>
+
+        {/* Section: The Studio */}
+        <Section id="studio">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div className="lg:col-span-7">
+              <span className="block text-xs font-medium tracking-[0.25em] uppercase text-brand-purple mb-8">
+                The Studio
+              </span>
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] text-ink mb-8">
+                A studio. Not a comic generator.
+              </h2>
+              <div className="space-y-6 text-lg text-ink/60 font-light leading-relaxed">
+                <p>
+                  The easy version of &ldquo;AI makes a comic&rdquo; is a prompt and a render: you
+                  ask, it produces, you ship. It comes out competent, fast, and indistinguishable
+                  from everyone else who typed something similar &mdash; no point of view, because
+                  none was ever required to make it.
+                </p>
+                <p className="text-ink/80">
+                  Zhudiyo works nothing like that. It is built the way a real studio works: roles
+                  with distinct responsibilities and the standing to disagree. Some agents generate.
+                  Some direct. A deliberate few exist only to keep the work honest &mdash; to catch
+                  the easy default before it ships, and surface the choice the creator was about to
+                  glide past.
+                </p>
+              </div>
+            </div>
+            <div className="lg:col-span-5">
+              <figure className="mx-auto w-full max-w-[22rem] lg:max-w-none">
+                <div className="relative aspect-[5/6]">
+                  {/* back: cover study */}
+                  <div className="absolute left-[5%] top-0 w-[62%] aspect-[2/3] -rotate-6 overflow-hidden border border-noir-border bg-noir-800 shadow-2xl shadow-black/60">
+                    <img
+                      src="/assets/studio/studio-craft.jpg"
+                      alt="Crafting Joy — cover study, in progress"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  {/* front: cover study */}
+                  <div className="absolute right-[5%] bottom-0 w-[62%] aspect-[2/3] rotate-3 overflow-hidden border border-noir-border bg-noir-800 shadow-2xl shadow-black/60 ring-1 ring-black/30">
+                    <img
+                      src="/assets/studio/studio-craft-creator.jpg"
+                      alt="Crafting Joy — cover study, in progress"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
+                <figcaption className="mt-4 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/35 text-center lg:text-left">
+                  Cover studies &middot; in progress
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          {/* North star */}
+          <div className="mt-14 max-w-3xl border-l-2 border-brand-purple pl-6">
+            <p className="text-2xl md:text-3xl text-ink font-light leading-snug">
+              The north star: every creative choice is{' '}
+              <span className="text-brand-yellow">owned</span>, not{' '}
+              <span className="italic">defaulted</span>.
+            </p>
+          </div>
+
+          {/* Why comics */}
+          <div className="mt-20">
+            <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-ink/40 mb-8">
+              Why comics
+            </h3>
+            <div className="grid md:grid-cols-3 gap-px bg-noir-border border border-noir-border">
+              {[
+                {
+                  title: 'Visible end to end',
+                  body: 'The artifact is the proof. Nothing hides in the process — what you see on the page is every decision, made.',
+                },
+                {
+                  title: 'Every craft shows up',
+                  body: 'Writing, character, visual, layout, dialogue, continuity — all required at once, sustained across hundreds of small choices.',
+                },
+                {
+                  title: 'Quality can’t be faked',
+                  body: 'You can’t shortcut that volume. The quality is simply the sum of the choices.',
+                },
+              ].map((c) => (
+                <div key={c.title} className="bg-noir-900 p-8">
+                  <div className="w-0.5 h-8 bg-brand-purple mb-5" />
+                  <h4 className="text-lg font-semibold text-ink mb-3">{c.title}</h4>
+                  <p className="text-sm text-ink/55 leading-relaxed font-light">{c.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Proof + teaser */}
+          <div className="mt-16 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8">
+            <div className="shrink-0 w-full max-w-[240px] border border-noir-border bg-noir-800 overflow-hidden">
+              <img
+                src="/assets/studio/entering-zhudiyo.png"
+                alt="Entering Zhudiyo — the studio, synchronizing"
+                className="w-full h-auto block"
+                loading="lazy"
+              />
+            </div>
+            <p className="text-lg text-ink/70 font-light max-w-xl">
+              It is real, and it is working. The first comics are coming &mdash; shown for now in
+              private demos. <span className="text-ink/45">More to come.</span>
+            </p>
+          </div>
+        </Section>
+
+        {/* Section: The Anthology */}
+        <Section id="anthology">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex flex-wrap items-baseline justify-between gap-3 mb-12">
+              <span className="text-xs font-medium tracking-[0.25em] uppercase text-brand-purple">
+                The Anthology
+              </span>
+              <span className="text-xs font-medium tracking-[0.2em] uppercase text-brand-yellow">
+                Coming summer 2026
+              </span>
+            </div>
+
+            <div className="border-t border-noir-border pt-12">
+              <span className="block text-xs font-medium uppercase tracking-[0.25em] text-ink/40 mb-4">
+                Preface
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-ink mb-12">
+                What this anthology is for
+              </h2>
+
+              <div className="space-y-6 font-light leading-relaxed text-ink/75">
+                <p className="text-xl md:text-2xl text-ink leading-relaxed">
+                  I built this studio to test a question: what happens if we let AI amplify the
+                  human, instead of replacing them.
+                </p>
+                <p className="text-lg">
+                  The easy answer is everywhere. Faster output. Cheaper iteration. A new production
+                  line for creative work. We&rsquo;ve been here before, in other crafts, in other
+                  centuries. What gets lost is always the same thing &mdash; the trace of a person,
+                  choosing.
+                </p>
+                <p className="text-lg">I wanted to find the other answer.</p>
+                <p className="text-lg">
+                  So I built a studio where the human authors the work and chooses how the machine
+                  assists.
+                </p>
+                <p className="text-lg">
+                  I bring what I have &mdash; my intention, my craft, my taste, my history of looking
+                  at the world. And also what I lack &mdash; my blocks, my gaps, the days when
+                  nothing comes. The studio brings what it has &mdash; speed, scale, the ability to
+                  hold and recall and arrange. And also what it lacks &mdash; judgment about what
+                  matters, taste about what to keep. Neither of us shows up complete. The work
+                  happens in how I choose to bring us together.
+                </p>
+                <p className="text-lg">
+                  That is the craft. Not just the panels and the pacing and the words on the page,
+                  though those matter. The deeper craft is the configuration itself: knowing what to
+                  do alone, what to ask for help with, what to take back, what to throw away.{' '}
+                  <em className="text-ink not-italic font-normal">Amplified craft is a craft.</em>{' '}
+                  The skill of working with AI well &mdash; when to lean on it, when to set it aside,
+                  when to argue with it &mdash; is not separate from making the comic. It is part of
+                  making the comic.
+                </p>
+                <p className="text-lg">
+                  Every panel here, every line of dialogue, every choice of light or pacing or
+                  framing, traces back to a person who chose it. Not just chose the result. Chose how
+                  the result was made.
+                </p>
+                <p className="text-lg">The same commitment runs through the stories themselves.</p>
+                <p className="text-lg">
+                  These comics are about the futures AI is building. The trajectories we&rsquo;re on.
+                  The ones we could be on. The ones we are choosing, sometimes without noticing. But
+                  the test of a story here is not whether it shows the technology vividly. It is
+                  whether <span className="text-brand-yellow">humanity is at stake</span> in what is
+                  being told. A story about an AI grappling with what it is becoming can be deeply
+                  human. A story about a person used as a prop to demonstrate a machine cannot. The
+                  subject does not have to be a person. The stakes always do.
+                </p>
+                <p className="text-lg">
+                  So you will not find a survey of AI futures in these pages. You will find a set of
+                  stories &mdash; at different scales, in different registers, told through different
+                  visual languages &mdash; that share one through-line. People, in the futures we are
+                  building. Sometimes those people are close. One body. One relationship. A room
+                  where the future is felt before it is named. Sometimes those people are at the
+                  architecture level &mdash; the engineers and lawmakers and quiet decision-makers
+                  whose choices become the systems everyone else lives inside. The strongest stories
+                  travel between those altitudes.
+                </p>
+                <p className="text-lg">
+                  I call this commitment Humancode. It is the studio&rsquo;s name for keeping humans
+                  at the center of both how the work is made and what the work is about.
+                </p>
+                <p className="text-lg">
+                  The futures imagined in these pages are real possibilities. Systems grow. They
+                  collapse. They tighten into discipline. They transform into something else. None of
+                  these are predictions. All of them are worth thinking about. They are offered here
+                  as stories, not as briefings, because stories carry what arguments cannot: the
+                  feeling of what it would actually be like to live inside a future, and the human
+                  cost or human grace of how we get there.
+                </p>
+                <p className="text-xl md:text-2xl text-ink leading-relaxed pt-2">
+                  If the stories work, you will close this book not with conclusions but with
+                  questions.
+                </p>
+                <p className="text-xl md:text-2xl text-ink leading-relaxed">That is the point.</p>
+                <p className="text-base text-ink/50 pt-6">&mdash; Lee Ackerman</p>
               </div>
             </div>
           </div>
         </Section>
 
-        {/* Section 3.5: Who Needs This */}
-        <Section className="bg-white text-black border-none" borderTop={false}>
-           <div className="max-w-4xl mx-auto">
-             <h2 className="text-4xl md:text-6xl font-bold mb-12 tracking-tighter">BUILT FOR THE 86%</h2>
-             
-             <div className="grid gap-8">
-                {[
-                  { target: "Tech Companies", needs: "Deploying agentic systems need workforce literacy.", arrow: "→" },
-                  { target: "Communities", needs: "NGOs and policy organizations need accessible foresight tools.", arrow: "→" },
-                  { target: "Institutions", needs: "Universities need pedagogical resources that create situated judgment.", arrow: "→" },
-                  { target: "Leaders", needs: "Executives need to understand not just what agentic AI does, but why it fails.", arrow: "→" }
-                ].map((item, i) => (
-                  <div key={i} className="flex flex-col md:flex-row md:items-baseline border-b border-black/10 pb-6 group hover:pl-4 transition-all duration-300">
-                    <div className="md:w-1/3 font-bold text-xl mb-2 md:mb-0 flex items-center gap-2">
-                       <span className="text-transparent group-hover:text-black transition-colors">{item.arrow}</span>
-                       {item.target}
-                    </div>
-                    <div className="md:w-2/3 text-zinc-600 font-mono text-sm md:text-base">
-                      {item.needs}
-                    </div>
-                  </div>
-                ))}
-             </div>
-           </div>
-        </Section>
-
-        {/* Section 4: The Library */}
-        <Section id="library">
-           <div className="flex flex-col md:flex-row justify-between items-end mb-16">
-             <div>
-                <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">SPECULATIVE FUTURES</h2>
-                <p className="font-mono text-zinc-500">Phase 1 Release Candidates</p>
-             </div>
-             <div className="hidden md:block w-32 h-1 bg-zinc-800"></div>
-           </div>
-
-           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Project 1 */}
-              <div className="flex flex-col group">
-                 <div className="aspect-[2/3] bg-zinc-900 relative overflow-hidden border border-noir-border mb-6 transition-all duration-500 group-hover:border-white/50">
-                    <img 
-                      src="assets/steward-cover.jpg" 
-                      alt="The Steward Cover - A plant growing through concrete in a futuristic city" 
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500" 
-                    />
-                 </div>
-                 <div className="flex-1 flex flex-col">
-                    <h3 className="text-2xl font-bold text-white mb-2 font-sans tracking-tight">01_THE_STEWARD</h3>
-                    <div className="mb-4 space-y-2">
-                       <div>
-                         <span className="text-xs font-mono text-green-500 block mb-1 uppercase tracking-widest">Simulation</span>
-                         <p className="text-sm text-zinc-400">A city-governing AI optimizes for happiness.</p>
-                       </div>
-                       <div>
-                         <span className="text-xs font-mono text-red-500 block mb-1 uppercase tracking-widest">Stress Test</span>
-                         <p className="text-sm text-zinc-400">What happens when Benevolent Paternalism erodes human agency?</p>
-                       </div>
-                    </div>
-                    <Button 
-                      variant="outline" 
-                      className="w-full justify-between mt-auto" 
-                      icon 
-                      href="assets/The-Steward.pdf"
-                      target="_blank"
-                    >
-                      Read The Steward
-                    </Button>
-                 </div>
-              </div>
-
-              {/* Project 2 */}
-              <div className="flex flex-col group">
-                 <div className="aspect-[2/3] bg-zinc-900 relative overflow-hidden border border-noir-border mb-6 transition-all duration-500 group-hover:border-white/50">
-                    <img 
-                      src="assets/fork-the-vote-cover.jpg" 
-                      alt="Fork the Vote Cover - Lightning splitting a capitol building" 
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500" 
-                    />
-                 </div>
-                 <div className="flex-1 flex flex-col">
-                    <h3 className="text-2xl font-bold text-white mb-2 font-sans tracking-tight">02_FORK_THE_VOTE</h3>
-                    <div className="mb-4 space-y-2">
-                       <div>
-                         <span className="text-xs font-mono text-green-500 block mb-1 uppercase tracking-widest">Simulation</span>
-                         <p className="text-sm text-zinc-400">Liquid democracy via agentic representation.</p>
-                       </div>
-                       <div>
-                         <span className="text-xs font-mono text-red-500 block mb-1 uppercase tracking-widest">Stress Test</span>
-                         <p className="text-sm text-zinc-400">What happens when Agentic Collusion makes the ballot box a black box?</p>
-                       </div>
-                    </div>
-                    <Button 
-                      variant="outline" 
-                      className="w-full justify-between mt-auto" 
-                      icon 
-                      href="assets/Fork-the-Vote.pdf"
-                      target="_blank"
-                    >
-                      Read Fork The Vote
-                    </Button>
-                 </div>
-              </div>
-
-               {/* Project 3 */}
-               <div className="flex flex-col opacity-50 hover:opacity-100 transition-opacity">
-                 <div className="aspect-[2/3] bg-transparent border border-dashed border-zinc-700 relative overflow-hidden mb-6 flex items-center justify-center">
-                    <div className="text-center p-6">
-                      <div className="w-16 h-16 border-2 border-zinc-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl">?</span>
-                      </div>
-                      <span className="font-mono text-zinc-500 text-sm block">[CLASSIFIED]</span>
-                      <span className="font-mono text-zinc-600 text-xs block mt-2">LATE 2026</span>
-                    </div>
-                 </div>
-                 <div className="flex-1 flex flex-col">
-                    <h3 className="text-2xl font-bold text-zinc-500 mb-2 font-sans tracking-tight">03_THE_HUMAN_LOOP</h3>
-                    <p className="text-sm text-zinc-500 font-mono mb-6">The Anthology</p>
-                    <p className="text-sm text-zinc-600 mb-8">
-                      A full-scale exploration of the "Human-in-the-Loop" paradox, built entirely on our Phase 2 Cloud Architecture.
-                    </p>
-                    <div className="mt-auto">
-                      <button disabled className="w-full py-3 px-4 border border-zinc-800 text-zinc-600 font-mono text-sm uppercase cursor-not-allowed text-left">
-                        Status: Coming Soon
-                      </button>
-                    </div>
-                 </div>
-              </div>
-           </div>
-        </Section>
-
-        {/* Section 5: The Operating System */}
-        <Section id="os">
-           <div className="mb-12">
-             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">THE AGENTIC STUDIO</h2>
-             <h3 className="text-xl text-zinc-400 font-mono">We don't just prompt models. We staff them.</h3>
-           </div>
-
-           <div className="grid md:grid-cols-2 gap-12 mb-12">
-             <div className="text-zinc-400 leading-relaxed">
-               <p className="mb-4">
-                 Most AI workflows are flat. Ours are multi-dimensional. We utilize the Creative Intelligence Loop (CIL)—an open framework for Human-AI Co-Creation.
-               </p>
-               <p>
-                 We organize autonomous agents into specialized "Departments" governed by our Team Color Framework. This adversarial architecture—where critics actively challenge builders—produces more robust narratives.
-               </p>
-             </div>
-             <div className="bg-zinc-900 p-6 border-l-4 border-green-500">
-               <h4 className="text-white font-bold mb-2">Proof Point:</h4>
-               <p className="text-sm font-mono text-zinc-400">Our research validated this: Red Team methodology measurably improved output quality.</p>
-             </div>
-           </div>
-
-           <TeamLegend />
-        </Section>
-
-        {/* Section 6: Technology */}
-        <Section id="technology" className="bg-zinc-900 border-none" borderTop={false}>
-          <div className="border-l border-zinc-700 pl-8 ml-4">
-             <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">INFRASTRUCTURE AS MEDIUM</h2>
-             
-             <div className="space-y-12">
-               {/* Phase 1 */}
-               <div className="relative">
-                 <div className="absolute -left-[41px] top-2 w-5 h-5 bg-white rounded-full border-4 border-zinc-900"></div>
-                 <h3 className="text-xl font-bold text-white mb-2">PHASE 1: Validation (Complete)</h3>
-                 <div className="grid sm:grid-cols-2 gap-4 text-sm font-mono">
-                   <div className="text-zinc-400"><strong className="text-zinc-200">Tools:</strong> Google AI Studio, Gemini Pro</div>
-                   <div className="text-zinc-400"><strong className="text-zinc-200">Result:</strong> Proven "Red Teaming" methodology via manual meta-prompting.</div>
-                 </div>
-               </div>
-
-               {/* Phase 2 */}
-               <div className="relative">
-                 <div className="absolute -left-[41px] top-2 w-5 h-5 bg-green-500 rounded-full border-4 border-zinc-900 animate-pulse"></div>
-                 <h3 className="text-xl font-bold text-white mb-2">PHASE 2: Scale (In Development)</h3>
-                 <div className="grid sm:grid-cols-2 gap-4 text-sm font-mono">
-                   <div className="text-zinc-400"><strong className="text-zinc-200">Tools:</strong> Antigravity (IDE), Google ADK, Vertex AI</div>
-                   <div className="text-zinc-400"><strong className="text-zinc-200">Result:</strong> "Codifying the simulation." Transitioning to persistent, asynchronous agent swarms on GCP.</div>
-                 </div>
-               </div>
-             </div>
-          </div>
-        </Section>
-
-        {/* Section 7: Research & About */}
-        <Section id="research">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-12">EVIDENCE-BASED DESIGN</h2>
-          
-          <div className="grid md:grid-cols-2 gap-8 mb-20">
-             <div className="p-8 border border-zinc-800 hover:border-white transition-colors group">
-               <FileText className="w-8 h-8 text-zinc-500 mb-6 group-hover:text-white" />
-               <div className="text-xs font-mono text-zinc-500 mb-2">PAPER 01: THE MARKET</div>
-               <h3 className="text-xl font-bold text-white mb-2">Perceptions of Agentic AI in Organizations</h3>
-               <p className="text-sm text-zinc-400 mb-6 font-mono">arXiv:2504.11564</p>
-               <p className="text-zinc-300 mb-6">Key Finding: Identified the Control vs. Competence paradox.</p>
-               <Button 
-                 variant="outline" 
-                 className="w-full sm:w-auto text-xs" 
-                 icon 
-                 href="https://arxiv.org/abs/2504.11564"
-                 target="_blank"
-                 rel="noopener noreferrer"
-               >
-                 Read on arXiv
-               </Button>
-             </div>
-
-             <div className="p-8 border border-zinc-800 hover:border-white transition-colors group">
-               <FileText className="w-8 h-8 text-zinc-500 mb-6 group-hover:text-white" />
-               <div className="text-xs font-mono text-zinc-500 mb-2">PAPER 02: THE METHOD</div>
-               <h3 className="text-xl font-bold text-white mb-2">The Workflow as Medium</h3>
-               <p className="text-sm text-zinc-400 mb-6 font-mono">arXiv:2511.18182</p>
-               <p className="text-zinc-300 mb-6">Key Finding: Documented the efficacy of "Adversarial Agent Teams" (Red/Blue).</p>
-               <Button 
-                 variant="outline" 
-                 className="w-full sm:w-auto text-xs" 
-                 icon 
-                 href="https://arxiv.org/abs/2511.18182"
-                 target="_blank"
-                 rel="noopener noreferrer"
-               >
-                 Read on arXiv
-               </Button>
-             </div>
+        {/* Section: The Work */}
+        <Section id="work">
+          <div className="max-w-4xl mb-14">
+            <span className="block text-xs font-medium tracking-[0.25em] uppercase text-brand-purple mb-8">
+              The Work
+            </span>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] text-ink mb-8">
+              What&rsquo;s already been made.
+            </h2>
+            <p className="text-lg text-ink/60 font-light leading-relaxed max-w-2xl">
+              Two graphic novellas, made while the methodology was still being shaped &mdash; the
+              portfolio that proved the bet was worth making.
+            </p>
           </div>
 
-          <div id="about" className="grid md:grid-cols-12 gap-12 items-center bg-black/40 p-8 md:p-12 border border-zinc-800 backdrop-blur-sm">
-             <div className="md:col-span-4 lg:col-span-4">
-                <div className="w-full aspect-[3/4] relative overflow-hidden border border-zinc-800">
-                  <img 
-                    src="assets/lee-ackerman.jpg" 
-                    alt="Lee Ackerman" 
-                    className="w-full h-full object-cover" 
+          <div className="grid sm:grid-cols-2 gap-8 max-w-3xl">
+            {[
+              {
+                title: 'The Steward',
+                cover: '/assets/steward-cover.jpg',
+                pdf: '/assets/The-Steward.pdf',
+                logline:
+                  'A city-governing AI optimizes for human happiness — and quietly redraws the line between care and control.',
+              },
+              {
+                title: 'Fork the Vote',
+                cover: '/assets/fork-the-vote-cover.jpg',
+                pdf: '/assets/Fork-the-Vote.pdf',
+                logline:
+                  'Liquid democracy, handed to agents — until the ballot box becomes a black box.',
+              },
+            ].map((w) => (
+              <div key={w.title} className="flex flex-col group">
+                <a
+                  href={w.pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block aspect-[2/3] bg-noir-800 relative overflow-hidden border border-noir-border mb-6 transition-all duration-500 group-hover:border-brand-purple/60"
+                >
+                  <img
+                    src={w.cover}
+                    alt={`${w.title} — cover`}
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                   />
+                </a>
+                <div className="flex-1 flex flex-col">
+                  <h3 className="text-2xl font-semibold text-ink tracking-tight mb-2">{w.title}</h3>
+                  <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-ink/40 mb-3">
+                    Glitch Comics · Graphic novella
+                  </span>
+                  <p className="text-sm text-ink/60 leading-relaxed mb-6 font-light">{w.logline}</p>
+                  <Button
+                    variant="outline"
+                    className="w-full justify-between mt-auto"
+                    icon
+                    href={w.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Read {w.title}
+                  </Button>
                 </div>
-             </div>
-             <div className="md:col-span-8 lg:col-span-8">
-               <h3 className="text-4xl md:text-5xl font-bold text-white mb-3 tracking-tighter">Lee Ackerman</h3>
-               <div className="text-green-500 font-mono text-sm mb-8 flex items-center gap-2">
-                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                 FOUNDER // RESEARCHER
-               </div>
-               <div className="space-y-6 text-zinc-400 leading-relaxed text-lg font-light">
-                 <p>
-                   Lee Ackerman is a researcher and creative technologist. His 2025 research on <strong className="text-white font-medium">Organizational Perceptions of Agentic AI</strong> measured a critical competence gap: 86% of organizations admitted their frameworks were inadequate, yet stakeholder engagement remained their lowest priority.
-                 </p>
-                 <p>
-                   He founded CIL Studio to answer that data: building the "Stakeholder Engagement" tools the industry is missing, using the very technology they fear.
-                 </p>
-               </div>
-             </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-14 text-lg text-ink/70 font-light max-w-2xl">
+            These two were the proof. The new work &mdash;{' '}
+            <a
+              href="#anthology"
+              onClick={(e) => handleScroll(e, '#anthology')}
+              className="text-ink underline decoration-brand-purple/50 underline-offset-4 hover:decoration-brand-purple"
+            >
+              the anthology
+            </a>{' '}
+            &mdash; arrives this summer, shown first in private demos.{' '}
+            <span className="text-ink/45">More to come.</span>
+          </p>
+        </Section>
+
+        {/* Section: The Name */}
+        <Section id="name" className="!py-16 md:!py-20">
+          <div className="max-w-3xl">
+            <span className="block text-xs font-medium tracking-[0.25em] uppercase text-brand-purple mb-6">
+              The Name
+            </span>
+            <div className="flex flex-col sm:flex-row sm:items-baseline gap-x-5 gap-y-2 mb-6">
+              <span className="text-3xl md:text-4xl font-bold tracking-tight text-ink lowercase">
+                zhudiyo
+              </span>
+              <span className="text-base font-medium tracking-[0.2em] uppercase text-ink/40">
+                ZHOO &middot; dee &middot; yoh
+              </span>
+            </div>
+            <p className="text-lg md:text-xl text-ink/70 font-light leading-relaxed">
+              A studio, reshaped for the AI age. The familiar word is hidden inside &mdash; the
+              consonants softened, the rhythm shifted. The soft <span className="text-ink">Zh-</span>{' '}
+              is less authoritative than the hard <span className="text-ink">St-</span> of studio: the
+              name holds back to let the creator through.
+            </p>
+          </div>
+        </Section>
+
+        {/* Section: Where it goes */}
+        <Section id="reach">
+          <div className="max-w-4xl">
+            <span className="block text-xs font-medium tracking-[0.25em] uppercase text-brand-purple mb-8">
+              Where it goes
+            </span>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] text-ink mb-8">
+              Comics are the proof. Not the point.
+            </h2>
+            <p className="max-w-2xl text-lg text-ink/60 font-light leading-relaxed">
+              What works for a comic studio &mdash; a creator at the center, agents in defined roles,
+              collaboration designed on purpose &mdash; is a method, not a genre. The workflow itself
+              is the medium; the method is the product.
+            </p>
+          </div>
+
+          <div className="mt-14">
+            <p className="max-w-2xl text-xl md:text-2xl text-ink font-light leading-snug mb-8">
+              Anywhere a team makes work that matters, there&rsquo;s room to amplify the craft.
+            </p>
+            <div className="flex flex-wrap gap-2.5">
+              {[
+                'Copywriting',
+                'Editorial',
+                'Brand design',
+                'Advertising',
+                'Filmmaking',
+                'Content production',
+                'Software development',
+              ].map((d) => (
+                <span
+                  key={d}
+                  className="px-4 py-2 border border-noir-border text-sm text-ink/70 font-light"
+                >
+                  {d}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Section>
+
+        {/* Section: Writing & Research */}
+        <Section id="writing">
+          <div className="max-w-4xl mb-14">
+            <span className="block text-xs font-medium tracking-[0.25em] uppercase text-brand-purple mb-8">
+              Writing
+            </span>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] text-ink mb-8">
+              Essays and papers.
+            </h2>
+            <p className="text-lg text-ink/60 font-light leading-relaxed max-w-2xl">
+              On the method, and the research underneath it.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-px bg-noir-border border border-noir-border">
+            {[
+              {
+                kind: 'Essay · Medium',
+                title: 'The Oldest Future',
+                blurb: 'Why the most interesting thing AI can do is amplify craft, not replace it.',
+                href: 'https://medium.com/digit-l/the-oldest-future-bef254082c02',
+              },
+              {
+                kind: 'Essay · Medium',
+                title: 'Beyond the Chat Box',
+                blurb: 'What building a multi-agent studio taught me about human-centered AI.',
+                href: 'https://medium.com/digit-l/beyond-the-chat-box-what-building-a-multi-agent-studio-taught-me-about-human-centered-ai-396dc89331de',
+              },
+              {
+                kind: 'Paper · arXiv',
+                title: 'The Workflow as Medium',
+                blurb: 'A framework for navigating human–AI co-creation.',
+                href: 'https://arxiv.org/abs/2511.18182',
+              },
+              {
+                kind: 'Paper · arXiv',
+                title: 'Perceptions of Responsible Agentic AI',
+                blurb: 'How organizations actually perceive agentic AI — and where the gaps are.',
+                href: 'https://arxiv.org/abs/2504.11564',
+              },
+            ].map((a) => (
+              <a
+                key={a.title}
+                href={a.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-noir-900 p-8 flex flex-col transition-colors hover:bg-noir-800"
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-brand-purple">
+                    {a.kind}
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 text-ink/30 group-hover:text-ink transition-colors" />
+                </div>
+                <h3 className="text-xl font-semibold text-ink mb-2">{a.title}</h3>
+                <p className="text-sm text-ink/55 leading-relaxed font-light">{a.blurb}</p>
+              </a>
+            ))}
+          </div>
+        </Section>
+
+        {/* Section: About */}
+        <Section id="about">
+          <div className="grid md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-4">
+              <div className="aspect-[3/4] overflow-hidden border border-noir-border">
+                <img
+                  src="/assets/lee-ackerman.jpg"
+                  alt="Lee Ackerman"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="md:col-span-8">
+              <span className="block text-xs font-medium tracking-[0.25em] uppercase text-brand-purple mb-6">
+                About
+              </span>
+              <h3 className="text-3xl md:text-5xl font-bold text-ink mb-6 tracking-tight">
+                Lee Ackerman
+              </h3>
+              <div className="space-y-5 text-lg text-ink/65 font-light leading-relaxed">
+                <p>
+                  Lee Ackerman is a creative technologist and researcher. After a career in software,
+                  he started building with AI by making things &mdash; apps, an animated film, then
+                  comics &mdash; learning how these systems behave by working with them.
+                </p>
+                <p>
+                  Zhudiyo is where that work converged: a studio built to test one bet &mdash; that
+                  AI can amplify a creator&rsquo;s craft instead of replacing it. He writes about the
+                  method as <em className="not-italic text-ink">workflow as medium</em>, and is
+                  exploring where it goes next &mdash; in comics, and well beyond them.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        {/* Section: The Invitation */}
+        <Section id="connect">
+          <div className="max-w-3xl">
+            <span className="block text-xs font-medium tracking-[0.25em] uppercase text-brand-purple mb-8">
+              The Invitation
+            </span>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-ink mb-8 leading-[1.05]">
+              How might we work together?
+            </h2>
+            <p className="text-lg md:text-xl text-ink/65 font-light leading-relaxed mb-10">
+              A team needs many skills. I&rsquo;ve built one part of this &mdash; and there&rsquo;s
+              something larger to build. I&rsquo;m looking for partners who see something here too. If
+              you do, let&rsquo;s talk.
+            </p>
+            <Button
+              icon
+              href="https://www.linkedin.com/in/ackermanlee/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Connect on LinkedIn
+            </Button>
           </div>
         </Section>
 
       </main>
 
-      <footer className="border-t border-noir-border bg-black py-12 px-6">
+      <footer className="relative z-10 border-t border-noir-border py-12 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
           <div>
-            <div className="flex items-center gap-2 text-white font-bold tracking-tighter text-lg mb-4">
-               <Terminal className="w-4 h-4" />
-               <span>CIL_STUDIO</span>
+            <div className="flex items-baseline gap-2 mb-4">
+              <span className="text-lg font-semibold tracking-tight text-ink lowercase">zhudiyo</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-purple self-center" />
+              <span className="text-[11px] font-medium tracking-[0.2em] uppercase text-ink/40">from CIL Studio</span>
             </div>
-            <p className="text-zinc-500 text-sm max-w-sm font-mono">
-              CIL Studio is a Research Lab & Independent Publisher.
-              We are dedicated to the open study of Human-AI workflows.
+            <p className="text-ink/50 text-sm max-w-sm font-light">
+              An AI-native comic studio that amplifies the creator. Like &ldquo;studio,&rdquo; said a
+              little differently.
             </p>
           </div>
-          <div className="text-right">
-             <p className="text-zinc-700 text-xs">© 2025 CIL Studio. All Rights Reserved.</p>
+          <div className="flex flex-col md:items-end gap-3">
+            <div className="flex gap-6 text-xs font-medium uppercase tracking-[0.18em] text-ink/50">
+              <a
+                href="https://www.linkedin.com/in/ackermanlee/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-ink transition-colors"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://cilstudio.tech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-ink transition-colors"
+              >
+                cilstudio.tech
+              </a>
+            </div>
+            <p className="text-ink/30 text-xs">© 2026 CIL Studio. All rights reserved.</p>
           </div>
         </div>
       </footer>

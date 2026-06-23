@@ -17,7 +17,7 @@ export const Button: React.FC<ButtonProps> = ({
   href,
   ...props 
 }) => {
-  const baseStyles = "inline-flex items-center gap-2 px-6 py-3 font-mono text-sm uppercase tracking-wider transition-all duration-300 border sharp-corners group";
+  const baseStyles = "inline-flex items-center gap-2 px-6 py-3 font-sans text-sm uppercase tracking-wider transition-all duration-300 border sharp-corners group";
   
   const variants = {
     primary: "bg-white text-black border-white hover:bg-transparent hover:text-white",
