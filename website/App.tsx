@@ -34,7 +34,9 @@ const App: React.FC = () => {
     { label: 'Humancode', href: '#humancode' },
     { label: 'Studio', href: '#studio' },
     { label: 'Anthology', href: '#anthology' },
+    { label: 'Work', href: '#work' },
     { label: 'Writing', href: '#writing' },
+    { label: 'About', href: '#about' },
   ];
 
   return (
@@ -53,11 +55,11 @@ const App: React.FC = () => {
           >
             <span className="text-xl font-semibold tracking-tight text-ink lowercase">zhudiyo</span>
             <span className="w-1.5 h-1.5 rounded-full bg-brand-purple self-center" />
-            <span className="hidden sm:inline text-[11px] font-medium tracking-[0.2em] uppercase text-ink/40">from CIL Studio</span>
+            <span className="hidden lg:inline text-[11px] font-medium tracking-[0.2em] uppercase text-ink/40">from CIL Studio</span>
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-5 lg:gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.label}
