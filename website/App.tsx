@@ -315,17 +315,8 @@ const App: React.FC = () => {
             <div className="lg:col-span-5">
               <figure className="mx-auto w-full max-w-[22rem] lg:max-w-none">
                 <div className="relative aspect-[5/6]">
-                  {/* back left: cover study */}
-                  <div className="absolute left-0 top-[6%] w-[52%] aspect-[2/3] -rotate-6 overflow-hidden border border-noir-border bg-noir-800 shadow-2xl shadow-black/60">
-                    <img
-                      src="/assets/studio/studio-craft.jpg"
-                      alt="Crafting Joy cover study, in progress"
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  {/* back right: cover study */}
-                  <div className="absolute right-0 top-0 w-[52%] aspect-[2/3] rotate-6 overflow-hidden border border-noir-border bg-noir-800 shadow-2xl shadow-black/60">
+                  {/* back: cover study */}
+                  <div className="absolute left-[5%] top-0 w-[62%] aspect-[2/3] -rotate-6 overflow-hidden border border-noir-border bg-noir-800 shadow-2xl shadow-black/60">
                     <img
                       src="/assets/studio/studio-craft-creator.jpg"
                       alt="Crafting Joy cover study, in progress"
@@ -334,7 +325,7 @@ const App: React.FC = () => {
                     />
                   </div>
                   {/* front: cover study */}
-                  <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[58%] aspect-[2/3] rotate-1 overflow-hidden border border-noir-border bg-noir-800 shadow-2xl shadow-black/60 ring-1 ring-black/30">
+                  <div className="absolute right-[5%] bottom-0 w-[62%] aspect-[2/3] rotate-3 overflow-hidden border border-noir-border bg-noir-800 shadow-2xl shadow-black/60 ring-1 ring-black/30">
                     <img
                       src="/assets/studio/token-hustle.jpg"
                       alt="Token Hustle cover study, in progress"
