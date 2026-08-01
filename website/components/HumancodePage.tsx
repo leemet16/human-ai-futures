@@ -21,26 +21,26 @@ export const PrefaceBody: React.FC = () => (
       <p className="text-lg">
         The easy answer is everywhere. Faster output. Cheaper iteration. A new production line for
         creative work. We&rsquo;ve been here before, in other crafts, in other centuries. What gets
-        lost is always the same thing &mdash; the trace of a person, choosing.
+        lost is always the same thing: the trace of a person, choosing.
       </p>
       <p className="text-lg">I wanted to find the other answer.</p>
       <p className="text-lg">
         So I built a studio where the human authors the work and chooses how the machine assists.
       </p>
       <p className="text-lg">
-        I bring what I have &mdash; my intention, my craft, my taste, my history of looking at the
-        world. And also what I lack &mdash; my blocks, my gaps, the days when nothing comes. The
-        studio brings what it has &mdash; speed, scale, the ability to hold and recall and arrange.
-        And also what it lacks &mdash; judgment about what matters, taste about what to keep. Neither
+        I bring what I have: my intention, my craft, my taste, my history of looking at the world.
+        And also what I lack: my blocks, my gaps, the days when nothing comes. The studio brings what
+        it has: speed, scale, the ability to hold and recall and arrange. And also what it lacks:
+        judgment about what matters, taste about what to keep. Neither
         of us shows up complete. The work happens in how I choose to bring us together.
       </p>
       <p className="text-lg">
         That is the craft. Not just the panels and the pacing and the words on the page, though those
         matter. The deeper craft is the configuration itself: knowing what to do alone, what to ask
         for help with, what to take back, what to throw away.{' '}
-        <em className="text-ink not-italic font-normal">Amplified craft is a craft.</em> The skill of
-        working with AI well &mdash; when to lean on it, when to set it aside, when to argue with it
-        &mdash; is not separate from making the comic. It is part of making the comic.
+        <em className="text-ink not-italic font-normal">Amplified craft is a craft.</em> Knowing when
+        to lean on the machine, when to set it aside, when to argue with it: that skill is not
+        separate from making the comic. It is part of making the comic.
       </p>
       <p className="text-lg">
         Every panel here, every line of dialogue, every choice of light or pacing or framing, traces
@@ -57,13 +57,13 @@ export const PrefaceBody: React.FC = () => (
         stakes always do.
       </p>
       <p className="text-lg">
-        So you will not find a survey of AI futures in these pages. You will find a set of stories
-        &mdash; at different scales, in different registers, told through different visual languages
-        &mdash; that share one through-line. People, in the futures we are building. Sometimes those
-        people are close. One body. One relationship. A room where the future is felt before it is
-        named. Sometimes those people are at the architecture level &mdash; the engineers and
-        lawmakers and quiet decision-makers whose choices become the systems everyone else lives
-        inside. The strongest stories travel between those altitudes.
+        So you will not find a survey of AI futures in these pages. You will find a set of stories,
+        at different scales, in different registers, told through different visual languages, that
+        share one through-line. People, in the futures we are building. Sometimes those people are
+        close. One body. One relationship. A room where the future is felt before it is named.
+        Sometimes those people are at the architecture level: the engineers and lawmakers and quiet
+        decision-makers whose choices become the systems everyone else lives inside. The strongest
+        stories travel between those altitudes.
       </p>
       <p className="text-lg">
         I call this commitment Humancode. It is the studio&rsquo;s name for keeping humans at the
@@ -129,7 +129,7 @@ export const HumancodePage: React.FC = () => {
             Humancode
           </span>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] text-ink mb-8">
-            Keep humans at the center &mdash; of the making, and the story.
+            Keep humans at the center of the making, and of the story.
           </h1>
           <p className="text-lg md:text-xl text-ink/70 font-light leading-relaxed">
             Humancode is the studio&rsquo;s name for a single commitment: the human stays at the
@@ -139,7 +139,7 @@ export const HumancodePage: React.FC = () => {
           {/* The test */}
           <div className="mt-14 border-t border-noir-border pt-12">
             <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-ink/40 mb-8">
-              The test &mdash; two questions, at every scale
+              The test: two questions, at every scale
             </h2>
             <div className="space-y-6">
               <div className="flex items-baseline gap-5">
@@ -160,7 +160,7 @@ export const HumancodePage: React.FC = () => {
               </div>
             </div>
             <p className="text-base text-ink/50 font-light mt-8">
-              The subject doesn&rsquo;t have to be human &mdash; but humanity has to be at stake.
+              The subject doesn&rsquo;t have to be human, but humanity has to be at stake.
             </p>
           </div>
 

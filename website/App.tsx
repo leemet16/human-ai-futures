@@ -121,8 +121,8 @@ const App: React.FC = () => {
             </p>
 
             <p className="text-base md:text-lg text-ink/60 max-w-xl font-light mb-10 leading-relaxed">
-              A studio reshaped for the AI age &mdash; where the machine collaborates and the
-              human authors. Real, and working. The first comics are coming.
+              A studio reshaped for the AI age, where the machine collaborates and the human
+              authors. Real, and working. The first comics are coming.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -152,34 +152,34 @@ const App: React.FC = () => {
 
             <div className="max-w-2xl space-y-6 font-light leading-relaxed">
               <p className="text-lg text-ink/60">
-                The default direction of AI is automation &mdash; a new production line for the
+                The default direction of AI is automation: a new production line for the
                 knowledge economy. That&rsquo;s industrial-era thinking, applied to a creative-era
                 opportunity.
               </p>
               <p className="text-xl md:text-2xl text-ink italic">
                 The interesting future is older.{' '}
-                <span className="text-brand-yellow not-italic font-normal">Craft.</span> And now
-                &mdash; finally &mdash; we can amplify it.
+                <span className="text-brand-yellow not-italic font-normal">Craft.</span> And now,
+                finally, we can amplify it.
               </p>
             </div>
           </div>
 
-          {/* Amplified craft — three principles */}
+          {/* Amplified craft: three principles */}
           <div className="mt-20">
             <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-ink/40 mb-8">
-              Amplified craft &mdash; three principles
+              Amplified craft: three principles
             </h3>
             <div className="grid md:grid-cols-3 gap-px bg-noir-border border border-noir-border">
               {[
                 {
                   n: '01',
                   title: 'The creator is the author.',
-                  body: 'The work belongs to the human at the center. Always. Agents support — they do not author.',
+                  body: 'The work belongs to the human at the center. Always. Agents support; they do not author.',
                 },
                 {
                   n: '02',
                   title: 'Agents handle production load.',
-                  body: 'The repetitive, structural, executional work that drains attention — distributed to agents in defined roles.',
+                  body: 'The repetitive, structural, executional work that drains attention goes to agents in defined roles.',
                 },
                 {
                   n: '03',
@@ -201,7 +201,7 @@ const App: React.FC = () => {
 
           <p className="mt-12 text-lg text-ink/60 font-light max-w-2xl">
             I call the underlying idea <span className="text-ink italic">workflow as medium</span>:
-            the workflow itself is something you author with intent &mdash; not neutral plumbing
+            the workflow itself is something you author with intent, not neutral plumbing
             between a person and an output.
           </p>
         </Section>
@@ -213,7 +213,7 @@ const App: React.FC = () => {
               Humancode
             </span>
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] text-ink mb-8">
-              Keep humans at the center &mdash; of the making, and the story.
+              Keep humans at the center of the making, and of the story.
             </h2>
             <p className="text-lg md:text-xl text-ink/60 font-light leading-relaxed max-w-2xl">
               Humancode is the studio&rsquo;s name for a single commitment: the human stays at the
@@ -228,8 +228,8 @@ const App: React.FC = () => {
                 In the making
               </span>
               <p className="text-lg text-ink/80 font-light leading-relaxed">
-                The machine collaborates; the human authors. Agents extend reach, not judgment
-                &mdash; the creator stays the author of every decision that shapes the work.
+                The machine collaborates; the human authors. Agents extend reach, not judgment. The
+                creator stays the author of every decision that shapes the work.
               </p>
             </div>
             <div className="bg-noir-900 p-8 md:p-10">
@@ -238,8 +238,8 @@ const App: React.FC = () => {
               </span>
               <p className="text-lg text-ink/80 font-light leading-relaxed">
                 A Humancode story is never a demonstration of a technology. It is an account of what
-                that technology does to, for, and through people &mdash; the future shown in a body,
-                a relationship, a system someone built and someone else lives inside.
+                that technology does to, for, and through people: the future shown in a body, a
+                relationship, a system someone built and someone else lives inside.
               </p>
             </div>
           </div>
@@ -247,7 +247,7 @@ const App: React.FC = () => {
           {/* The test */}
           <div className="mt-16 max-w-4xl">
             <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-ink/40 mb-8">
-              The test &mdash; two questions, at every scale
+              The test: two questions, at every scale
             </h3>
             <div className="space-y-6">
               <div className="flex items-baseline gap-5">
@@ -268,13 +268,13 @@ const App: React.FC = () => {
               </div>
             </div>
             <p className="text-base text-ink/50 font-light mt-8 max-w-xl">
-              The subject doesn&rsquo;t have to be human &mdash; but humanity has to be at stake.
+              The subject doesn&rsquo;t have to be human, but humanity has to be at stake.
             </p>
           </div>
 
           <p className="mt-12 max-w-2xl text-base text-ink/45 font-light leading-relaxed">
-            Told across distinct visual languages, and at every altitude &mdash; from one life up
-            close to the systems that contain it.
+            Told across distinct visual languages, and at every altitude, from one life up close to
+            the systems that contain it.
           </p>
 
           <a
@@ -300,13 +300,13 @@ const App: React.FC = () => {
                 <p>
                   The easy version of &ldquo;AI makes a comic&rdquo; is a prompt and a render: you
                   ask, it produces, you ship. It comes out competent, fast, and indistinguishable
-                  from everyone else who typed something similar &mdash; no point of view, because
-                  none was ever required to make it.
+                  from everyone else who typed something similar. No point of view, because none
+                  was ever required to make it.
                 </p>
                 <p className="text-ink/80">
                   Zhudiyo works nothing like that. It is built the way a real studio works: roles
                   with distinct responsibilities and the standing to disagree. Some agents generate.
-                  Some direct. A deliberate few exist only to keep the work honest &mdash; to catch
+                  Some direct. A deliberate few exist only to keep the work honest: to catch
                   the easy default before it ships, and surface the choice the creator was about to
                   glide past.
                 </p>
@@ -315,20 +315,29 @@ const App: React.FC = () => {
             <div className="lg:col-span-5">
               <figure className="mx-auto w-full max-w-[22rem] lg:max-w-none">
                 <div className="relative aspect-[5/6]">
-                  {/* back: cover study */}
-                  <div className="absolute left-[5%] top-0 w-[62%] aspect-[2/3] -rotate-6 overflow-hidden border border-noir-border bg-noir-800 shadow-2xl shadow-black/60">
+                  {/* back left: cover study */}
+                  <div className="absolute left-0 top-[6%] w-[52%] aspect-[2/3] -rotate-6 overflow-hidden border border-noir-border bg-noir-800 shadow-2xl shadow-black/60">
                     <img
                       src="/assets/studio/studio-craft.jpg"
-                      alt="Crafting Joy — cover study, in progress"
+                      alt="Crafting Joy cover study, in progress"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  {/* back right: cover study */}
+                  <div className="absolute right-0 top-0 w-[52%] aspect-[2/3] rotate-6 overflow-hidden border border-noir-border bg-noir-800 shadow-2xl shadow-black/60">
+                    <img
+                      src="/assets/studio/studio-craft-creator.jpg"
+                      alt="Crafting Joy cover study, in progress"
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
                   </div>
                   {/* front: cover study */}
-                  <div className="absolute right-[5%] bottom-0 w-[62%] aspect-[2/3] rotate-3 overflow-hidden border border-noir-border bg-noir-800 shadow-2xl shadow-black/60 ring-1 ring-black/30">
+                  <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[58%] aspect-[2/3] rotate-1 overflow-hidden border border-noir-border bg-noir-800 shadow-2xl shadow-black/60 ring-1 ring-black/30">
                     <img
-                      src="/assets/studio/studio-craft-creator.jpg"
-                      alt="Crafting Joy — cover study, in progress"
+                      src="/assets/studio/token-hustle.jpg"
+                      alt="Token Hustle cover study, in progress"
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
@@ -359,11 +368,11 @@ const App: React.FC = () => {
               {[
                 {
                   title: 'Visible end to end',
-                  body: 'The artifact is the proof. Nothing hides in the process — what you see on the page is every decision, made.',
+                  body: 'The artifact is the proof. Nothing hides in the process. What you see on the page is every decision, made.',
                 },
                 {
                   title: 'Every craft shows up',
-                  body: 'Writing, character, visual, layout, dialogue, continuity — all required at once, sustained across hundreds of small choices.',
+                  body: 'Writing, character, visual, layout, dialogue, continuity: all required at once, sustained across hundreds of small choices.',
                 },
                 {
                   title: 'Quality can’t be faked',
@@ -384,13 +393,13 @@ const App: React.FC = () => {
             <div className="shrink-0 w-full max-w-[240px] border border-noir-border bg-noir-800 overflow-hidden">
               <img
                 src="/assets/studio/entering-zhudiyo.png"
-                alt="Entering Zhudiyo — the studio, synchronizing"
+                alt="Entering Zhudiyo, the studio synchronizing"
                 className="w-full h-auto block"
                 loading="lazy"
               />
             </div>
             <p className="text-lg text-ink/70 font-light max-w-xl">
-              It is real, and it is working. The first comics are coming &mdash; shown for now in
+              It is real, and it is working. The first comics are coming, shown for now in
               private demos. <span className="text-ink/45">More to come.</span>
             </p>
           </div>
@@ -431,7 +440,7 @@ const App: React.FC = () => {
               What&rsquo;s already been made.
             </h2>
             <p className="text-lg text-ink/60 font-light leading-relaxed max-w-2xl">
-              Two graphic novellas, made while the methodology was still being shaped &mdash; the
+              Two graphic novellas, made while the methodology was still being shaped: the
               portfolio that proved the bet was worth making.
             </p>
           </div>
@@ -443,14 +452,14 @@ const App: React.FC = () => {
                 cover: '/assets/steward-cover.jpg',
                 pdf: '/assets/The-Steward.pdf',
                 logline:
-                  'A city-governing AI optimizes for human happiness — and quietly redraws the line between care and control.',
+                  'A city-governing AI optimizes for human happiness, and quietly redraws the line between care and control.',
               },
               {
                 title: 'Fork the Vote',
                 cover: '/assets/fork-the-vote-cover.jpg',
                 pdf: '/assets/Fork-the-Vote.pdf',
                 logline:
-                  'Liquid democracy, handed to agents — until the ballot box becomes a black box.',
+                  'Liquid democracy, handed to agents, until the ballot box becomes a black box.',
               },
             ].map((w) => (
               <div key={w.title} className="flex flex-col group">
@@ -462,7 +471,7 @@ const App: React.FC = () => {
                 >
                   <img
                     src={w.cover}
-                    alt={`${w.title} — cover`}
+                    alt={`${w.title} cover`}
                     className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                   />
                 </a>
@@ -488,15 +497,15 @@ const App: React.FC = () => {
           </div>
 
           <p className="mt-14 text-lg text-ink/70 font-light max-w-2xl">
-            These two were the proof. The new work &mdash;{' '}
+            These two were the proof. The new work,{' '}
             <a
               href="#anthology"
               onClick={(e) => handleScroll(e, '#anthology')}
               className="text-ink underline decoration-brand-purple/50 underline-offset-4 hover:decoration-brand-purple"
             >
               the anthology
-            </a>{' '}
-            &mdash; arrives this summer, shown first in private demos.{' '}
+            </a>
+            , arrives this summer, shown first in private demos.{' '}
             <span className="text-ink/45">More to come.</span>
           </p>
         </Section>
@@ -516,7 +525,7 @@ const App: React.FC = () => {
               </span>
             </div>
             <p className="text-lg md:text-xl text-ink/70 font-light leading-relaxed">
-              A studio, reshaped for the AI age. The familiar word is hidden inside &mdash; the
+              A studio, reshaped for the AI age. The familiar word is hidden inside: the
               consonants softened, the rhythm shifted. The soft <span className="text-ink">Zh-</span>{' '}
               is less authoritative than the hard <span className="text-ink">St-</span> of studio: the
               name holds back to let the creator through.
@@ -534,9 +543,9 @@ const App: React.FC = () => {
               Comics are the proof. Not the point.
             </h2>
             <p className="max-w-2xl text-lg text-ink/60 font-light leading-relaxed">
-              What works for a comic studio &mdash; a creator at the center, agents in defined roles,
-              collaboration designed on purpose &mdash; is a method, not a genre. The workflow itself
-              is the medium; the method is the product.
+              What works for a comic studio is a method, not a genre: a creator at the center,
+              agents in defined roles, collaboration designed on purpose. The workflow itself is
+              the medium; the method is the product.
             </p>
           </div>
 
@@ -602,7 +611,7 @@ const App: React.FC = () => {
               {
                 kind: 'Paper · arXiv',
                 title: 'Perceptions of Responsible Agentic AI',
-                blurb: 'How organizations actually perceive agentic AI — and where the gaps are.',
+                blurb: 'How organizations actually perceive agentic AI, and where the gaps are.',
                 href: 'https://arxiv.org/abs/2504.11564',
               },
             ].map((a) => (
@@ -648,14 +657,14 @@ const App: React.FC = () => {
               <div className="space-y-5 text-lg text-ink/65 font-light leading-relaxed">
                 <p>
                   Lee Ackerman is a creative technologist and researcher. After a career in software,
-                  he started building with AI by making things &mdash; apps, an animated film, then
-                  comics &mdash; learning how these systems behave by working with them.
+                  he started building with AI by making things: apps, an animated film, then
+                  comics. He learned how these systems behave by working with them.
                 </p>
                 <p>
-                  Zhudiyo is where that work converged: a studio built to test one bet &mdash; that
-                  AI can amplify a creator&rsquo;s craft instead of replacing it. He writes about the
+                  Zhudiyo is where that work converged: a studio built to test one bet, that AI can
+                  amplify a creator&rsquo;s craft instead of replacing it. He writes about the
                   method as <em className="not-italic text-ink">workflow as medium</em>, and is
-                  exploring where it goes next &mdash; in comics, and well beyond them.
+                  exploring where it goes next, in comics and well beyond them.
                 </p>
               </div>
             </div>
@@ -672,7 +681,7 @@ const App: React.FC = () => {
               How might we work together?
             </h2>
             <p className="text-lg md:text-xl text-ink/65 font-light leading-relaxed mb-10">
-              A team needs many skills. I&rsquo;ve built one part of this &mdash; and there&rsquo;s
+              A team needs many skills. I&rsquo;ve built one part of this, and there&rsquo;s
               something larger to build. I&rsquo;m looking for partners who see something here too. If
               you do, let&rsquo;s talk.
             </p>
