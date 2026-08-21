@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/humancode", "destination": "/index.html" }
+    { "source": "/humancode", "destination": "/index.html" },
+    { "source": "/token-hustle", "destination": "/index.html" }
   ]
 }

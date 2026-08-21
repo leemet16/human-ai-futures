@@ -3,6 +3,7 @@ import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
 import { Section } from './components/Section';
 import { Button } from './components/ui/Button';
 import { PrefaceBody } from './components/HumancodePage';
+import { TokenHustleBlurb, TokenHustleActions } from './components/TokenHustlePage';
 
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -404,11 +405,44 @@ const App: React.FC = () => {
                 The Anthology
               </span>
               <span className="text-xs font-medium tracking-[0.2em] uppercase text-brand-yellow">
-                Coming summer 2026
+                Coming 2026
               </span>
             </div>
 
-            <div className="border-t border-noir-border pt-12">
+            {/* The first comic out of the pipeline, out for notes */}
+            <div className="border border-noir-border bg-noir-800/40 p-6 md:p-10">
+              <div className="grid md:grid-cols-12 gap-8 md:gap-10 items-center">
+                <div className="md:col-span-5">
+                  <a href="/token-hustle" className="block group">
+                    <img
+                      src="/assets/studio/token-hustle.jpg"
+                      alt="Token Hustle cover"
+                      className="w-full h-auto block border border-noir-border shadow-2xl shadow-black/60 transition-opacity duration-500 opacity-90 group-hover:opacity-100"
+                      loading="lazy"
+                    />
+                  </a>
+                </div>
+                <div className="md:col-span-7">
+                  <span className="block text-xs font-medium uppercase tracking-[0.2em] text-brand-yellow mb-4">
+                    First release
+                  </span>
+                  <h3 className="text-3xl md:text-4xl font-bold tracking-tight text-ink mb-5">
+                    Token Hustle
+                  </h3>
+                  <TokenHustleBlurb />
+                  <TokenHustleActions className="mt-7" />
+                  <a
+                    href="/token-hustle"
+                    className="mt-6 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-ink/45 hover:text-ink transition-colors"
+                  >
+                    Notes welcome, and about the studio
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t border-noir-border mt-16 pt-12">
               <PrefaceBody />
               <a
                 href="/humancode"
@@ -496,8 +530,7 @@ const App: React.FC = () => {
             >
               the anthology
             </a>
-            , arrives this summer, shown first in private demos.{' '}
-            <span className="text-ink/45">More to come.</span>
+            , is landing now: Token Hustle first, more comics through the fall.
           </p>
         </Section>
 

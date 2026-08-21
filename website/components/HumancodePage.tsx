@@ -171,7 +171,7 @@ export const HumancodePage: React.FC = () => {
                 The Anthology
               </span>
               <span className="text-xs font-medium tracking-[0.2em] uppercase text-brand-yellow">
-                Coming summer 2026
+                Coming 2026
               </span>
             </div>
             <PrefaceBody />
