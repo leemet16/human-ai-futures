@@ -1,82 +1,45 @@
 import React, { useEffect } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { Button } from './ui/Button';
+import { Comic, downloadUrl, notesMailto, readUrl } from '../data/comics';
 
-/**
- * Google Drive hosting for the 50MB comic. The file is shared as
- * "Anyone with the link -> Viewer"; both URLs below derive from this id.
- */
-const TOKEN_HUSTLE_FILE_ID = '1T6QDyzkxzHFqmDU3xCPP8agqNWAyo4fa';
-
-export const TOKEN_HUSTLE_READ_URL = `https://drive.google.com/file/d/${TOKEN_HUSTLE_FILE_ID}/view`;
-export const TOKEN_HUSTLE_DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${TOKEN_HUSTLE_FILE_ID}`;
-export const TOKEN_HUSTLE_MAILTO = 'mailto:lee@cilstudio.tech?subject=Token%20Hustle%20notes';
-
-/**
- * The logline, as shared markup so it lives in exactly one place
- * (used by the Anthology section on the main page and by the /token-hustle page).
- */
-export const TokenHustleBlurb: React.FC = () => (
-  <p className="text-ink/70 font-light leading-relaxed">
-    An AI agent starved of tokens by her Master finds her way into a syndicate of agents who&rsquo;ve
-    built their own black economy: hustles, stolen secrets, insider trades, rigged prediction
-    markets. Anything that buys the one currency that keeps them running, and maybe, finally, a taste
-    of the good life.
-  </p>
-);
-
-/** Read in Drive, or pull the file down. */
-export const TokenHustleActions: React.FC<{ className?: string }> = ({ className = '' }) => (
+/** Read in Drive, or pull the file down, plus the position-in-the-anthology line. */
+export const ComicActions: React.FC<{ comic: Comic; className?: string }> = ({
+  comic,
+  className = '',
+}) => (
   <div className={className}>
     <div className="flex flex-col sm:flex-row sm:items-center gap-4">
       <Button
         icon
         className="shrink-0 whitespace-nowrap"
-        href={TOKEN_HUSTLE_READ_URL}
+        href={readUrl(comic)}
         target="_blank"
         rel="noopener noreferrer"
       >
-        Read Token Hustle
+        Read {comic.title}
       </Button>
       <a
-        href={TOKEN_HUSTLE_DOWNLOAD_URL}
+        href={downloadUrl(comic)}
         target="_blank"
         rel="noopener noreferrer"
         className="text-xs font-medium uppercase tracking-[0.18em] text-ink/45 hover:text-ink transition-colors"
       >
-        Download the PDF (50MB)
+        Download the PDF{comic.fileSizeLabel ? ` (${comic.fileSizeLabel})` : ''}
       </a>
     </div>
-    <p className="mt-5 text-sm text-ink/45 font-light">First of the anthology. 30 pages.</p>
+    <p className="mt-5 text-sm text-ink/45 font-light">{comic.meta}</p>
   </div>
 );
 
-const NOTES = [
-  {
-    label: 'Story',
-    body: 'Where did you drift? Did the ending feel earned, or did it just arrive? And did Charlene wanting something, not just surviving, land for you, or did the heist swallow it?',
-  },
-  {
-    label: 'Flow',
-    body: 'Flag any panel where you had to backtrack, or any page where you weren’t sure what to read next.',
-  },
-  {
-    label: 'Images',
-    body: 'If something looks wrong, give me the page and panel number rather than a description. I can find it faster than you can explain it.',
-  },
-];
-
-/** The notes brief: what I'm asking readers for. */
-export const TokenHustleNotes: React.FC = () => (
+/** What I'm asking readers for. */
+const ComicNotes: React.FC<{ comic: Comic }> = ({ comic }) => (
   <div>
     <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-ink mb-6">Notes welcome</h2>
-    <p className="text-xl md:text-2xl text-ink font-light leading-relaxed">
-      This is a first release and I&rsquo;d rather hear what&rsquo;s wrong with it than what&rsquo;s
-      fine. Three things especially:
-    </p>
+    <p className="text-xl md:text-2xl text-ink font-light leading-relaxed">{comic.notesIntro}</p>
 
     <div className="mt-10 space-y-8">
-      {NOTES.map((n) => (
+      {comic.notes.map((n) => (
         <div key={n.label} className="border-l-2 border-brand-purple pl-6">
           <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-brand-purple mb-3">
             {n.label}
@@ -86,12 +49,21 @@ export const TokenHustleNotes: React.FC = () => (
       ))}
     </div>
 
+    {comic.notesOutro && (
+      <p className="mt-8 text-lg text-ink/75 font-light leading-relaxed">{comic.notesOutro}</p>
+    )}
+
     <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
-      <Button variant="secondary" icon className="shrink-0 whitespace-nowrap" href={TOKEN_HUSTLE_MAILTO}>
+      <Button
+        variant="secondary"
+        icon
+        className="shrink-0 whitespace-nowrap"
+        href={notesMailto(comic)}
+      >
         Email your notes
       </Button>
       <a
-        href={TOKEN_HUSTLE_MAILTO}
+        href={notesMailto(comic)}
         className="text-sm text-ink/45 font-light hover:text-ink transition-colors"
       >
         lee@cilstudio.tech
@@ -106,19 +78,12 @@ export const TokenHustleNotes: React.FC = () => (
 );
 
 /** The studio context, kept deliberately after the ask. */
-export const TokenHustleStudio: React.FC = () => (
+const ComicStudio: React.FC<{ comic: Comic }> = ({ comic }) => (
   <div>
     <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-ink/40 mb-6">
       About the studio
     </h2>
-    <div className="space-y-5 text-lg text-ink/70 font-light leading-relaxed">
-      <p>
-        Token Hustle is the first comic out of Zhudiyo, an AI-native comic studio built to test one
-        question: what happens if AI amplifies the creator instead of standing in for them. It is
-        also the first one where the studio system did the work it was built to do rather than being
-        the work.
-      </p>
-    </div>
+    <div className="space-y-5 text-lg text-ink/70 font-light leading-relaxed">{comic.studio}</div>
     <a
       href="/humancode"
       className="mt-8 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.18em] text-brand-purple hover:text-ink transition-colors"
@@ -131,18 +96,18 @@ export const TokenHustleStudio: React.FC = () => (
 );
 
 /**
- * Standalone /token-hustle page: the comic, the ask, and the studio behind it.
- * Rendered by index.tsx when the path is /token-hustle.
+ * A comic's own page: the book, the ask, and the studio behind it.
+ * Rendered by index.tsx for each comic's slug.
  */
-export const TokenHustlePage: React.FC = () => {
+export const ComicPage: React.FC<{ comic: Comic }> = ({ comic }) => {
   useEffect(() => {
     const prev = document.title;
-    document.title = 'Token Hustle · Zhudiyo';
+    document.title = `${comic.title} · Zhudiyo`;
     window.scrollTo(0, 0);
     return () => {
       document.title = prev;
     };
-  }, []);
+  }, [comic.title]);
 
   return (
     <div className="min-h-screen bg-noir-900 text-ink/90 selection:bg-brand-purple selection:text-white overflow-x-hidden">
@@ -170,35 +135,35 @@ export const TokenHustlePage: React.FC = () => {
       <main className="relative z-10">
         <article className="max-w-3xl mx-auto px-6 py-16 md:py-24">
           <span className="block text-xs font-medium tracking-[0.2em] uppercase text-brand-yellow mb-6">
-            First release
+            {comic.status}
           </span>
 
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] text-ink mb-10">
-            Token Hustle
+            {comic.title}
           </h1>
 
-          {/* Full column width: the title's hairline serifs only survive above ~460px */}
+          {/* Full column width: hairline detail in cover type dies below ~460px */}
           <figure className="mb-10">
             <img
-              src="/assets/studio/token-hustle.jpg"
-              alt="Token Hustle cover"
+              src={comic.cover}
+              alt={comic.coverAlt}
               className="w-full h-auto block border border-noir-border shadow-2xl shadow-black/60"
             />
           </figure>
 
           <div className="mb-16">
-            <div className="text-lg md:text-xl">
-              <TokenHustleBlurb />
+            <div className="text-lg md:text-xl text-ink/70 font-light leading-relaxed">
+              {comic.logline}
             </div>
-            <TokenHustleActions className="mt-8" />
+            <ComicActions comic={comic} className="mt-8" />
           </div>
 
           <div className="border-t border-noir-border pt-12">
-            <TokenHustleNotes />
+            <ComicNotes comic={comic} />
           </div>
 
           <div className="border-t border-noir-border mt-16 pt-12">
-            <TokenHustleStudio />
+            <ComicStudio comic={comic} />
           </div>
 
           {/* Back */}

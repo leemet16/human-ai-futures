@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { HumancodePage } from './components/HumancodePage';
-import { TokenHustlePage } from './components/TokenHustlePage';
+import { ComicPage } from './components/ComicPage';
+import { COMICS } from './data/comics';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -11,11 +12,13 @@ if (!rootElement) {
 
 // Minimal path-based routing (no router dependency).
 const path = window.location.pathname.replace(/\/+$/, '');
-const routes: Record<string, React.FC> = {
-  '/humancode': HumancodePage,
-  '/token-hustle': TokenHustlePage,
-};
-const Root = routes[path] ?? App;
+
+const comic = COMICS.find((c) => `/${c.slug}` === path);
+const Root: React.FC = comic
+  ? () => <ComicPage comic={comic} />
+  : path === '/humancode'
+    ? HumancodePage
+    : App;
 
 const root = ReactDOM.createRoot(rootElement);
 root.render(

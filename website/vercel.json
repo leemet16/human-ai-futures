@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/humancode", "destination": "/index.html" },
-    { "source": "/token-hustle", "destination": "/index.html" }
+    { "source": "/token-hustle", "destination": "/index.html" },
+    { "source": "/off-centre", "destination": "/index.html" }
   ]
 }

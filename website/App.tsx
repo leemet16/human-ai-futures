@@ -3,7 +3,8 @@ import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
 import { Section } from './components/Section';
 import { Button } from './components/ui/Button';
 import { PrefaceBody } from './components/HumancodePage';
-import { TokenHustleBlurb, TokenHustleActions } from './components/TokenHustlePage';
+import { ComicActions } from './components/ComicPage';
+import { COMICS } from './data/comics';
 
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -319,8 +320,8 @@ const App: React.FC = () => {
                   {/* back: cover study */}
                   <div className="absolute left-[5%] top-0 w-[62%] aspect-[2/3] -rotate-6 overflow-hidden border border-noir-border bg-noir-800 shadow-2xl shadow-black/60">
                     <img
-                      src="/assets/studio/studio-craft-creator.jpg"
-                      alt="Crafting Joy cover study, in progress"
+                      src="/assets/studio/off-centre.jpg"
+                      alt="Off Centre cover"
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
@@ -329,14 +330,14 @@ const App: React.FC = () => {
                   <div className="absolute right-[5%] bottom-0 w-[62%] aspect-[2/3] rotate-3 overflow-hidden border border-noir-border bg-noir-800 shadow-2xl shadow-black/60 ring-1 ring-black/30">
                     <img
                       src="/assets/studio/token-hustle.jpg"
-                      alt="Token Hustle cover study, in progress"
+                      alt="Token Hustle cover"
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
                   </div>
                 </div>
                 <figcaption className="mt-4 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/35 text-center lg:text-left">
-                  Cover studies &middot; in progress
+                  Covers &middot; Zhudiyo 2026
                 </figcaption>
               </figure>
             </div>
@@ -399,7 +400,7 @@ const App: React.FC = () => {
 
         {/* Section: The Anthology */}
         <Section id="anthology">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="flex flex-wrap items-baseline justify-between gap-3 mb-12">
               <span className="text-xs font-medium tracking-[0.25em] uppercase text-brand-purple">
                 The Anthology
@@ -409,40 +410,38 @@ const App: React.FC = () => {
               </span>
             </div>
 
-            {/* The first comic out of the pipeline, out for notes */}
-            <div className="border border-noir-border bg-noir-800/40 p-6 md:p-10">
-              <div className="grid md:grid-cols-12 gap-8 md:gap-10 items-center">
-                <div className="md:col-span-5">
-                  <a href="/token-hustle" className="block group">
+            {/* The comics, newest first, each out for notes */}
+            <div className="grid md:grid-cols-2 gap-px bg-noir-border border border-noir-border">
+              {COMICS.map((c) => (
+                <div key={c.slug} className="bg-noir-900 p-6 md:p-8 flex flex-col">
+                  <a href={`/${c.slug}`} className="block group mb-7">
                     <img
-                      src="/assets/studio/token-hustle.jpg"
-                      alt="Token Hustle cover"
+                      src={c.cover}
+                      alt={c.coverAlt}
                       className="w-full h-auto block border border-noir-border shadow-2xl shadow-black/60 transition-opacity duration-500 opacity-90 group-hover:opacity-100"
                       loading="lazy"
                     />
                   </a>
-                </div>
-                <div className="md:col-span-7">
                   <span className="block text-xs font-medium uppercase tracking-[0.2em] text-brand-yellow mb-4">
-                    First release
+                    {c.status}
                   </span>
-                  <h3 className="text-3xl md:text-4xl font-bold tracking-tight text-ink mb-5">
-                    Token Hustle
+                  <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-ink mb-4">
+                    {c.title}
                   </h3>
-                  <TokenHustleBlurb />
-                  <TokenHustleActions className="mt-7" />
+                  <div className="flex-1 text-ink/70 font-light leading-relaxed">{c.teaser}</div>
+                  <ComicActions comic={c} className="mt-7" />
                   <a
-                    href="/token-hustle"
+                    href={`/${c.slug}`}
                     className="mt-6 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-ink/45 hover:text-ink transition-colors"
                   >
                     Notes welcome, and about the studio
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
-              </div>
+              ))}
             </div>
 
-            <div className="border-t border-noir-border mt-16 pt-12">
+            <div className="max-w-3xl border-t border-noir-border mt-16 pt-12">
               <PrefaceBody />
               <a
                 href="/humancode"
